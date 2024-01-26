@@ -44,3 +44,20 @@ Mat<unsigned char> convolution2D(Mat<unsigned char> input, Mat<int> x_kernel, Ma
 
     return output;
 }
+
+Mat<unsigned char> sobel(Mat<unsigned char> image, int x_order, int y_order, int aperture_size) {
+    Mat<int> x_kernel(aperture_size, aperture_size);
+    Mat<int> y_kernel(aperture_size, aperture_size);
+
+    int center = aperture_size / 2;
+
+    for (int i = 0; i < aperture_size; i++) {
+        for (int j = 0; j < aperture_size; j++) {
+            x_kernel.set(i, j, (j - center) * pow(-1, i) * x_order);
+            y_kernel.set(i, j, (i - center) * pow(-1, j) * y_order);
+        }
+    }
+
+    return convolution2D(image, x_kernel, y_kernel);
+}
+

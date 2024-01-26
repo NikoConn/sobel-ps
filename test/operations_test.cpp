@@ -62,6 +62,23 @@ TEST_F(OperationsTest, Convolution2D_EmptyMatrices) {
     ASSERT_EQ(result.cols, 0);
 }
 
+// Test the sobel function
+TEST_F(OperationsTest, SobelFilterTest) {
+    Mat<unsigned char> input(3, 3);
+    input.set(0, 0, 10); input.set(0, 1, 20); input.set(0, 2, 30);
+    input.set(1, 0, 40); input.set(1, 1, 50); input.set(1, 2, 60);
+    input.set(2, 0, 70); input.set(2, 1, 80); input.set(2, 2, 90);
+
+    Mat<unsigned char> expected_output(3, 3);
+    expected_output.set(0, 0, 30); expected_output.set(0, 1, 0); expected_output.set(0, 2, 30);
+    expected_output.set(1, 0, 50); expected_output.set(1, 1, 20); expected_output.set(1, 2, 50);
+    expected_output.set(2, 0, 30); expected_output.set(2, 1, 0); expected_output.set(2, 2, 30);
+
+    Mat<unsigned char> result = sobel(input, 1, 0);
+
+    ASSERT_TRUE(areMatricesEqual(expected_output, result));
+}
+
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
