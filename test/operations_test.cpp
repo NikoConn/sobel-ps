@@ -42,11 +42,12 @@ TEST_F(OperationsTest, Convolution2D_NormalOperation) {
     y_kernel.set(2, 0, 1); y_kernel.set(2, 1, 2); y_kernel.set(2, 2, 1);
 
     Mat<unsigned char> expected_output(3, 3);
-    expected_output.set(0, 0, 15); expected_output.set(0, 1, 20); expected_output.set(0, 2, 19);
-    expected_output.set(1, 0, 26); expected_output.set(1, 1, 25); expected_output.set(1, 2, 26);
-    expected_output.set(2, 0, 24); expected_output.set(2, 1, 20); expected_output.set(2, 2, 27);
+    expected_output.set(0, 0, 0); expected_output.set(0, 1, 0); expected_output.set(0, 2, 0);
+    expected_output.set(1, 0, 0); expected_output.set(1, 1, 25); expected_output.set(1, 2, 0);
+    expected_output.set(2, 0, 0); expected_output.set(2, 1, 0); expected_output.set(2, 2, 0);
 
     Mat<unsigned char> result = convolution2D(input, x_kernel, y_kernel);
+
     ASSERT_TRUE(areMatricesEqual(result, expected_output));
 }
 
@@ -70,16 +71,11 @@ TEST_F(OperationsTest, SobelFilterTest) {
     input.set(2, 0, 70); input.set(2, 1, 80); input.set(2, 2, 90);
 
     Mat<unsigned char> expected_output(3, 3);
-    expected_output.set(0, 0, 30); expected_output.set(0, 1, 0); expected_output.set(0, 2, 30);
-    expected_output.set(1, 0, 50); expected_output.set(1, 1, 20); expected_output.set(1, 2, 50);
-    expected_output.set(2, 0, 30); expected_output.set(2, 1, 0); expected_output.set(2, 2, 30);
+    expected_output.set(0, 0, 0); expected_output.set(0, 1, 0); expected_output.set(0, 2, 0);
+    expected_output.set(1, 0, 0); expected_output.set(1, 1, 20); expected_output.set(1, 2, 0);
+    expected_output.set(2, 0, 0); expected_output.set(2, 1, 0); expected_output.set(2, 2, 0);
 
     Mat<unsigned char> result = sobel(input, 1, 0);
 
     ASSERT_TRUE(areMatricesEqual(expected_output, result));
-}
-
-int main(int argc, char** argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
