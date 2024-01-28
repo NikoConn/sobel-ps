@@ -12,13 +12,20 @@ Para la implementación de este ejercicio, se ha utilizado [Wikipedia](https://e
 
 ## Estructura del Proyecto
 
-- **src/image/:** Carpeta que contiene la implementación de la clase `Mat` y las funciones de operaciones.
+- **external-libs/image-ps/:** Submodulo que contiene la implementación de la clase `Mat` y las funciones de operaciones.
   - `mat.h`: Definición de la clase `Mat`.
   - `mat.cpp`: Implementación de la clase `Mat`.
   - `operations.h`: Declaración de las funciones `convolution2D` y `sobel`.
   - `operations.cpp`: Implementación de las funciones `convolution2D` y `sobel`.
 
 - **src/main.cpp:** Archivo principal que lee una imagen, aplica el filtro Sobel y guarda el resultado.
+
+## Clonar proyecto
+
+Para clonar el proyecto es necesario clonar también los submódulos. Para ello, ejecutar:
+```
+git clone --recursive https://github.com/NikoConn/sobel-ps.git
+```
 
 ## Compilación
 
@@ -32,11 +39,11 @@ mkdir build && cd build && cmake .. && make
 Ejecuta el programa proporcionando la imagen de entrada y el nombre del archivo de salida como argumentos de la línea de comandos:
 
 ```
-./main <imagen_entrada> <imagen_salida>
+./sobel <imagen_entrada> <imagen_salida>
 ```
 
 ### Ejemplo:
 
 ```
-./main input.jpg output_sobel.jpg
+./sobel input.jpg output_sobel.jpg
 ```
