@@ -1,0 +1,3 @@
+[submodule "external-libs/image-ps"]
+	path = external-libs/image-ps
+	url = git@github.com:NikoConn/image-ps.git

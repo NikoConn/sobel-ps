@@ -2,8 +2,8 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include "image/operations.h"
-#include "image/mat.h"
+#include "operations.h"
+#include "mat.h"
 
 /**
  * @brief Converts an OpenCV Mat object to a Mat<unsigned char> object.

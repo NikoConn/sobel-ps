@@ -11,13 +11,10 @@ set(SOURCES
 )
 
 # Main executable
-add_executable(main ${SOURCES})
+add_executable(sobel ${SOURCES})
 
-add_subdirectory(src/image)
+add_subdirectory(external-libs/image-ps)
 
 # Find and link OpenCV
 find_package(OpenCV REQUIRED)
-target_link_libraries(main ${OpenCV_LIBS} image)
-
-# Add the test subdirectory
-add_subdirectory(test)
+target_link_libraries(sobel ${OpenCV_LIBS} image)
